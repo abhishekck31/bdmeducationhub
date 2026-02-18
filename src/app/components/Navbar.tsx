@@ -10,6 +10,7 @@ import {
   HStack,
   Icon,
   IconButton,
+  Image,
   Link,
   Stack,
   Text,
@@ -24,7 +25,7 @@ import {
   type DrawerOpenChangeDetails,
 } from "@chakra-ui/react";
 import { FiMenu, FiArrowUpRight, FiX } from "react-icons/fi";
-import { getWhatsAppLink, site } from "@/lib/site";
+import { site } from "@/lib/site";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -79,10 +80,6 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const enrollHref = getWhatsAppLink(
-    `Hello ${site.shortName}! I want to enquire about admissions for classes ${site.programs.classes}.`
-  );
-
   return (
     <Box
       as="header"
@@ -97,16 +94,41 @@ export function Navbar() {
       boxShadow={scrolled ? "glass" : "none"}
       transition="all 220ms ease"
     >
-      <Container py={scrolled ? 3 : 5} transition="all 220ms ease">
+      <Container
+        maxW="6xl"
+        px={{ base: 4, md: 6 }}
+        py={scrolled ? 3 : 5}
+        transition="all 220ms ease"
+      >
         <Flex align="center" justify="space-between" gap={4}>
           <Box>
-            <Link as={NextLink} href="#" _hover={{ textDecoration: "none" }}>
-              <Text fontSize={{ base: "md", sm: "lg" }} fontWeight={700}>
-                {site.shortName}
-              </Text>
-              <Text fontSize="sm" color="gray.600" lineHeight="shorter">
-                {site.slogan}
-              </Text>
+            <Link as={NextLink} href="#home" _hover={{ textDecoration: "none" }}>
+              <HStack gap={{ base: 3, md: 3.5 }} align="center">
+                <Image
+                  src="/logo.jpeg"
+                  alt={`${site.shortName} logo`}
+                  w={{ base: "38px", sm: "44px" }}
+                  h={{ base: "38px", sm: "44px" }}
+                  objectFit="contain"
+                  flexShrink={0}
+                />
+                <Stack gap={0} lineHeight="shorter">
+                  <Text
+                    fontSize={{ base: "lg", sm: "xl" }}
+                    fontWeight={800}
+                    color="brand.900"
+                  >
+                    {site.shortName}
+                  </Text>
+                  <Text
+                    fontSize={{ base: "sm", sm: "md" }}
+                    color="gray.600"
+                    fontWeight={600}
+                  >
+                    {site.slogan}
+                  </Text>
+                </Stack>
+              </HStack>
             </Link>
           </Box>
 
@@ -114,14 +136,13 @@ export function Navbar() {
 
           <HStack gap={3}>
             <Link
-              href={enrollHref}
-              target="_blank"
-              rel="noopener noreferrer"
+              as={NextLink}
+              href="#contact"
               display={{ base: "none", sm: "inline-flex" }}
               _hover={{ textDecoration: "none" }}
             >
-              <Button>
-                <Box as="span">Enroll Now</Box>
+              <Button bg="brand.700" color="white" _hover={{ bg: "brand.800" }}>
+                <Box as="span">Enquire Now</Box>
                 <Icon as={FiArrowUpRight} ms={2} />
               </Button>
             </Link>
@@ -149,7 +170,23 @@ export function Navbar() {
         <DrawerBackdrop />
         <DrawerPositioner>
           <DrawerContent>
-            <DrawerHeader fontWeight={800}>{site.shortName}</DrawerHeader>
+            <DrawerHeader fontWeight={800}>
+              <HStack gap={3}>
+                <Image
+                  src="/logo.jpeg"
+                  alt={`${site.shortName} logo`}
+                  w="36px"
+                  h="36px"
+                  objectFit="contain"
+                />
+                <Stack gap={0} lineHeight="shorter">
+                  <Text fontWeight={800}>{site.shortName}</Text>
+                  <Text fontSize="sm" color="gray.600" fontWeight={600}>
+                    {site.slogan}
+                  </Text>
+                </Stack>
+              </HStack>
+            </DrawerHeader>
             <DrawerCloseTrigger
               position="absolute"
               top="3"
@@ -176,12 +213,14 @@ export function Navbar() {
                 ))}
 
                 <Link
-                  href={enrollHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  as={NextLink}
+                  href="#contact"
+                  onClick={onClose}
                   _hover={{ textDecoration: "none" }}
                 >
-                  <Button w="full">Enroll Now</Button>
+                  <Button w="full" bg="brand.700" color="white" _hover={{ bg: "brand.800" }}>
+                    Enquire Now
+                  </Button>
                 </Link>
               </Stack>
             </DrawerBody>

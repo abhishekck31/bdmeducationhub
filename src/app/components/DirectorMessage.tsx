@@ -15,7 +15,7 @@ import { SectionHeading } from "./SectionHeading";
 export function DirectorMessage() {
   return (
     <Box id="director" py={{ base: 14, md: 18 }} scrollMarginTop="var(--navbar-height)">
-      <Container>
+      <Container maxW="6xl" px={{ base: 4, md: 6 }}>
         <ScrollFadeIn>
           <SectionHeading
             eyebrow="Director’s Message"

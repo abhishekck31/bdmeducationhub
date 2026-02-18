@@ -27,26 +27,48 @@ export function Contact() {
   const [phone, setPhone] = React.useState("");
   const [message, setMessage] = React.useState("");
 
+  const buildWhatsAppMessage = () => {
+    const cleanName = name.trim();
+    const cleanPhone = phone.trim();
+    const cleanMessage = message.trim();
+
+    return [
+      `Hello ${site.shortName}! I want to enquire about admissions.`,
+      "",
+      `Name: ${cleanName || "-"}`,
+      `Phone: ${cleanPhone || "-"}`,
+      `Message: ${cleanMessage || "-"}`,
+    ].join("\n");
+  };
+
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!name.trim() || !phone.trim()) {
+      toaster.create({
+        title: "Please fill required details",
+        description: "Enter your name and phone number to continue.",
+        type: "error",
+      });
+      return;
+    }
+
+    const waHref = getWhatsAppLink(buildWhatsAppMessage());
+    window.open(waHref, "_blank", "noopener,noreferrer");
     toaster.create({
-      title: "Thanks! We received your message.",
-      description:
-        "This form is frontend-only. Please WhatsApp us for fastest response.",
+      title: "Opening WhatsApp…",
+      description: "Send the message there to complete your enquiry.",
       type: "success",
     });
+
     setName("");
     setPhone("");
     setMessage("");
   };
 
-  const waHref = getWhatsAppLink(
-    `Hello ${site.shortName}! My name is ${name || ""}. I want to enquire about admissions. Phone: ${phone || ""}. Message: ${message || ""}`.trim()
-  );
-
   return (
     <Box id="contact" py={{ base: 14, md: 18 }} scrollMarginTop="var(--navbar-height)">
-      <Container>
+      <Container maxW="6xl" px={{ base: 4, md: 6 }}>
         <ScrollFadeIn>
           <SectionHeading
             eyebrow="Contact"
@@ -90,21 +112,6 @@ export function Contact() {
                   <Box>
                     <Heading size="sm">WhatsApp</Heading>
                     <Text color="gray.600">{site.whatsappNumber}</Text>
-                    <Link
-                      href={getWhatsAppLink(
-                        `Hello ${site.shortName}! I want to enquire about admissions.`
-                      )}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      mt={3}
-                      display="inline-flex"
-                      _hover={{ textDecoration: "none" }}
-                    >
-                      <Button>
-                        <Box as="span">WhatsApp Now</Box>
-                        <Icon as={FiSend} ms={2} />
-                      </Button>
-                    </Link>
                   </Box>
                 </HStack>
 
@@ -154,7 +161,7 @@ export function Contact() {
             >
               <form onSubmit={onSubmit}>
                 <Stack gap={4}>
-                  <Heading size="md">Send a message</Heading>
+                  <Heading size="md">Enquiry Form</Heading>
 
                   <Field.Root>
                     <Field.Label>Your Name</Field.Label>
@@ -162,6 +169,7 @@ export function Contact() {
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Enter your name"
+                      required
                     />
                   </Field.Root>
 
@@ -171,6 +179,7 @@ export function Contact() {
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       placeholder="Enter phone / WhatsApp number"
+                      required
                     />
                   </Field.Root>
 
@@ -184,24 +193,13 @@ export function Contact() {
                     />
                   </Field.Root>
 
-                  <HStack gap={3} flexWrap="wrap">
-                    <Button type="submit">
-                      <Box as="span">Submit</Box>
-                      <Icon as={FiSend} ms={2} />
-                    </Button>
-                    <Link
-                      href={waHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      _hover={{ textDecoration: "none" }}
-                    >
-                      <Button variant="outline">Continue on WhatsApp</Button>
-                    </Link>
-                  </HStack>
+                  <Button type="submit" bg="brand.700" color="white" _hover={{ bg: "brand.800" }}>
+                    <Box as="span">Enquire Now</Box>
+                    <Icon as={FiSend} ms={2} />
+                  </Button>
 
                   <Text color="gray.600" fontSize="sm">
-                    Note: Form submission is frontend-only. For fastest response,
-                    please WhatsApp us.
+                    On submit, WhatsApp will open with your details.
                   </Text>
                 </Stack>
               </form>

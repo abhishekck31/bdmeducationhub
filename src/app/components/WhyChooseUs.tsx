@@ -102,7 +102,7 @@ const reasons = [
 export function WhyChooseUs() {
   return (
     <Box id="why" py={{ base: 14, md: 18 }} scrollMarginTop="var(--navbar-height)">
-      <Container>
+      <Container maxW="6xl" px={{ base: 4, md: 6 }}>
         <ScrollFadeIn>
           <SectionHeading
             eyebrow="Why Choose Us"

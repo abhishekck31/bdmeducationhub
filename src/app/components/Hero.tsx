@@ -14,15 +14,11 @@ import {
   Text,
   Heading,
 } from "@chakra-ui/react";
-import { FiArrowUpRight, FiMessageCircle } from "react-icons/fi";
+import { FiArrowUpRight } from "react-icons/fi";
 import { MotionBox } from "@/lib/motion";
-import { getWhatsAppLink, site } from "@/lib/site";
+import { site } from "@/lib/site";
 
 export function Hero() {
-  const enrollHref = getWhatsAppLink(
-    `Hello ${site.shortName}! I want to enrol / enquire about admissions.`
-  );
-
   return (
     <Box
       id="home"
@@ -157,53 +153,19 @@ export function Hero() {
                 school tuition to competitive exam batches.
               </Text>
 
-              <Stack
-                direction={{ base: "column", sm: "row" }}
-                gap={{ base: 3, sm: 4 }}
-                w="full"
-                align={{ base: "stretch", sm: "center" }}
-              >
-                <Link
-                  href={enrollHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{ textDecoration: "none" }}
+              <Link href="#contact" _hover={{ textDecoration: "none" }}>
+                <Button
+                  size="lg"
+                  bgGradient="linear(to-r, brand.700, brand.600)"
+                  color="white"
+                  boxShadow="soft"
+                  _hover={{ bgGradient: "linear(to-r, brand.800, brand.700)" }}
+                  w={{ base: "full", sm: "auto" }}
                 >
-                  <Button
-                    size="lg"
-                    bgGradient="linear(to-r, brand.700, brand.600)"
-                    color="white"
-                    boxShadow="soft"
-                    _hover={{ bgGradient: "linear(to-r, brand.800, brand.700)" }}
-                    w={{ base: "full", sm: "auto" }}
-                  >
-                    <Box as="span">Enroll Now</Box>
-                    <Icon as={FiArrowUpRight} ms={2} />
-                  </Button>
-                </Link>
-
-                <Link
-                  href={getWhatsAppLink(
-                    `Hello ${site.shortName}! I want to know about course details and fees.`
-                  )}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{ textDecoration: "none" }}
-                >
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    borderColor="brand.200"
-                    color="brand.800"
-                    bg="white"
-                    _hover={{ bg: "brand.50" }}
-                    w={{ base: "full", sm: "auto" }}
-                  >
-                    <Icon as={FiMessageCircle} me={2} />
-                    <Box as="span">WhatsApp</Box>
-                  </Button>
-                </Link>
-              </Stack>
+                  <Box as="span">Enquire Now</Box>
+                  <Icon as={FiArrowUpRight} ms={2} />
+                </Button>
+              </Link>
 
               <Text color="gray.600" fontSize="sm">
                 Rewari, Haryana • Academic-first coaching focused on discipline

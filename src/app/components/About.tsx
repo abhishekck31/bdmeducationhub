@@ -33,7 +33,7 @@ const cards = [
 export function About() {
   return (
     <Box id="about" py={{ base: 14, md: 18 }} scrollMarginTop="var(--navbar-height)">
-      <Container>
+      <Container maxW="6xl" px={{ base: 4, md: 6 }}>
         <ScrollFadeIn>
           <Stack gap={4} maxW="3xl">
             <Heading size={{ base: "lg", md: "xl" }}>

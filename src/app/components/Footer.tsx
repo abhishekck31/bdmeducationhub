@@ -6,14 +6,15 @@ import {
   Container,
   HStack,
   Icon,
+  Image,
   Link,
   Separator,
   SimpleGrid,
   Stack,
   Text,
 } from "@chakra-ui/react";
-import { FiInstagram, FiFacebook, FiYoutube, FiArrowUpRight } from "react-icons/fi";
-import { site, getWhatsAppLink } from "@/lib/site";
+import { FiInstagram, FiFacebook, FiYoutube } from "react-icons/fi";
+import { site } from "@/lib/site";
 
 const quickLinks = [
   { label: "About", href: "#about" },
@@ -26,28 +27,28 @@ const quickLinks = [
 export function Footer() {
   return (
     <Box bg="gray.900" color="white" py={{ base: 12, md: 14 }}>
-      <Container>
+      <Container maxW="6xl" px={{ base: 4, md: 6 }}>
         <SimpleGrid columns={{ base: 1, md: 3 }} gap={{ base: 10, md: 12 }}>
           <Stack gap={3}>
-            <Text fontWeight={800} fontSize="lg">
-              {site.shortName}
-            </Text>
-            <Text color="whiteAlpha.800">{site.slogan}</Text>
-            <Link
-              href={getWhatsAppLink(
-                `Hello ${site.shortName}! I want to enquire about admissions.`
-              )}
-              target="_blank"
-              rel="noopener noreferrer"
-              color="gold.300"
-              fontWeight={700}
-              display="inline-flex"
-              alignItems="center"
-              gap={2}
-            >
-              Admissions Open – Enroll Today!
-              <Icon as={FiArrowUpRight} />
-            </Link>
+            <HStack gap={3} align="center">
+              <Box bg="white" borderRadius="xl" p="1">
+                <Image
+                  src="/logo.jpeg"
+                  alt={`${site.shortName} logo`}
+                  w="46px"
+                  h="46px"
+                  objectFit="contain"
+                />
+              </Box>
+              <Stack gap={0} lineHeight="shorter">
+                <Text fontWeight={800} fontSize="lg">
+                  {site.shortName}
+                </Text>
+                <Text color="whiteAlpha.800" fontWeight={600}>
+                  {site.slogan}
+                </Text>
+              </Stack>
+            </HStack>
           </Stack>
 
           <Stack gap={3}>

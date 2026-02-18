@@ -29,7 +29,7 @@ export function Gallery() {
       bg="gray.50"
       scrollMarginTop="var(--navbar-height)"
     >
-      <Container>
+      <Container maxW="6xl" px={{ base: 4, md: 6 }}>
         <ScrollFadeIn>
           <SectionHeading
             eyebrow="Gallery"
