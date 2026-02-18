@@ -114,7 +114,7 @@ export function Navbar() {
                 />
                 <Stack gap={0} lineHeight="shorter">
                   <Text
-                    fontSize={{ base: "lg", sm: "xl" }}
+                    fontSize={{ base: "lg", sm: "xl", md: "2xl" }}
                     fontWeight={800}
                     color="brand.900"
                   >

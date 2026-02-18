@@ -107,7 +107,7 @@ export function Courses() {
           <ScrollFadeIn delay={courses.length * 0.05}>
             <Box
               borderRadius="2xl"
-              bgGradient="linear(to-br, brand.800, brand.700, gold.400)"
+              bg="brand.800"
               color="white"
               p={{ base: 6, md: 7 }}
               boxShadow="glass"
@@ -116,15 +116,20 @@ export function Courses() {
             >
               <Box
                 position="absolute"
-                inset={0}
-                bgGradient="radial(520px circle at 20% 10%, rgba(255,255,255,0.18), transparent 60%), radial(600px circle at 80% 65%, rgba(255,255,255,0.14), transparent 60%)"
+                top={-10}
+                right={-10}
+                w="180px"
+                h="180px"
+                bg="gold.400"
+                borderRadius="full"
+                opacity={0.15}
               />
               <Stack gap={3} position="relative">
-                <Heading size="md">Admissions Open</Heading>
-                <Text color="whiteAlpha.900">
+                <Heading size="md" color="white">Admissions Open</Heading>
+                <Text color="white" opacity={0.9}>
                   Enroll today and get a structured study plan.
                 </Text>
-                <Text fontSize="sm" color="whiteAlpha.900">
+                <Text fontSize="sm" color="white" opacity={0.85}>
                   Limited seats for special batches.
                 </Text>
               </Stack>

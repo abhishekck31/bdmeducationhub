@@ -13,7 +13,6 @@ import { DirectorMessage } from "./components/DirectorMessage";
 import { Gallery } from "./components/Gallery";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
-import { FloatingWhatsApp } from "./components/FloatingWhatsApp";
 
 export default function Home() {
   return (
@@ -34,7 +33,6 @@ export default function Home() {
         <Contact />
       </Box>
       <Footer />
-      <FloatingWhatsApp />
     </MotionBox>
   );
 }
