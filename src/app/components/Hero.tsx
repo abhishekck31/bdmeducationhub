@@ -162,7 +162,7 @@ export function Hero() {
                   fontSize={{ base: "md", md: "lg" }}
                   textAlign="left"
                   mb={1}
-                  sx={{ textShadow: "0 1px 8px #fffbe6" }}
+                  textShadow="0 1px 8px #fffbe6"
                 >
                   A Strong Foundation for a Successful Future.
                 </Text>
@@ -184,7 +184,7 @@ export function Hero() {
                   letterSpacing="-0.02em"
                   fontWeight={900}
                   mb={1}
-                  sx={{ textShadow: "0 2px 12px #e3eafc" }}
+                  textShadow="0 2px 12px #e3eafc"
                 >
                   Strong fundamentals.
                 </Heading>
@@ -196,7 +196,7 @@ export function Hero() {
                   letterSpacing="-0.02em"
                   fontWeight={900}
                   mb={1}
-                  sx={{ textShadow: "0 2px 12px #fffbe6" }}
+                  textShadow="0 2px 12px #fffbe6"
                 >
                   Clear concepts.
                 </Heading>
@@ -207,7 +207,7 @@ export function Hero() {
                   lineHeight={1.1}
                   letterSpacing="-0.02em"
                   fontWeight={900}
-                  sx={{ textShadow: "0 2px 12px #e3eafc" }}
+                  textShadow="0 2px 12px #e3eafc"
                 >
                   Confident results.
                 </Heading>
@@ -221,7 +221,7 @@ export function Hero() {
                 fontWeight={500}
                 mt={2}
                 mb={2}
-                sx={{ textShadow: "0 1px 8px #f7fafc" }}
+                textShadow="0 1px 8px #f7fafc"
               >
                 {site.name} helps students build disciplined study habits with focused teaching, regular tests, and personal attention — from school tuition to competitive exam batches.
               </Text>
