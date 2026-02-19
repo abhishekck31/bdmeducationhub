@@ -80,9 +80,13 @@ export function Hero() {
             gap={{ base: 12, lg: 16 }}
           >
             <Stack gap={{ base: 7, md: 8 }} maxW={{ lg: "2xl" }}>
-              <HStack gap={3} flexWrap="wrap">
+              <Stack
+                direction={{ base: "column", sm: "row" }}
+                gap={3}
+                align={{ base: "stretch", sm: "center" }}
+              >
                 <Badge
-                  px={4}
+                  px={{ base: 3, sm: 4 }}
                   py={1.5}
                   borderRadius="full"
                   bgGradient="linear(to-r, brand.50, gold.50)"
@@ -90,14 +94,18 @@ export function Hero() {
                   borderWidth="2px"
                   borderColor="brand.200"
                   fontWeight={800}
-                  fontSize={{ base: "sm", md: "md" }}
+                  fontSize={{ base: "xs", sm: "sm", md: "md" }}
                   boxShadow="0 2px 8px 0 #e3eafc"
                   letterSpacing="0.01em"
+                  w={{ base: "full", sm: "auto" }}
+                  textAlign="center"
+                  whiteSpace="normal"
+                  lineHeight="1.3"
                 >
                   Classes {site.programs.classes}
                 </Badge>
                 <Badge
-                  px={4}
+                  px={{ base: 3, sm: 4 }}
                   py={1.5}
                   borderRadius="full"
                   bgGradient="linear(to-r, brand.50, gold.50)"
@@ -105,14 +113,18 @@ export function Hero() {
                   borderWidth="2px"
                   borderColor="brand.200"
                   fontWeight={800}
-                  fontSize={{ base: "sm", md: "md" }}
+                  fontSize={{ base: "xs", sm: "sm", md: "md" }}
                   boxShadow="0 2px 8px 0 #e3eafc"
                   letterSpacing="0.01em"
+                  w={{ base: "full", sm: "auto" }}
+                  textAlign="center"
+                  whiteSpace="normal"
+                  lineHeight="1.3"
                 >
                   Navodaya • Sainik School • Military School • Gurukul
                 </Badge>
                 <Badge
-                  px={4}
+                  px={{ base: 3, sm: 4 }}
                   py={1.5}
                   borderRadius="full"
                   bgGradient="linear(to-r, gold.100, gold.50)"
@@ -120,26 +132,36 @@ export function Hero() {
                   borderWidth="2px"
                   borderColor="gold.300"
                   fontWeight={800}
-                  fontSize={{ base: "sm", md: "md" }}
+                  fontSize={{ base: "xs", sm: "sm", md: "md" }}
                   boxShadow="0 2px 8px 0 #fffbe6"
                   letterSpacing="0.01em"
+                  w={{ base: "full", sm: "auto" }}
+                  textAlign="center"
+                  whiteSpace="normal"
+                  lineHeight="1.3"
                 >
                   Admissions Open
                 </Badge>
-              </HStack>
+              </Stack>
 
               {/* CUET Preparation Badge - visually attractive, premium style */}
-              <Box display="flex" mt={2} mb={1}>
+              <Box
+                display="flex"
+                mt={2}
+                mb={1}
+                w="full"
+                justifyContent={{ base: "center", sm: "flex-start" }}
+              >
                 <Badge
-                  px={6}
-                  py={2.5}
+                  px={{ base: 4, sm: 6 }}
+                  py={{ base: 2, sm: 2.5 }}
                   borderRadius="full"
                   bgGradient="linear(to-r, gold.50, brand.50)"
                   color="brand.800"
                   borderWidth="2px"
                   borderColor="gold.400"
                   fontWeight={900}
-                  fontSize={{ base: "md", md: "lg" }}
+                  fontSize={{ base: "sm", sm: "md", md: "lg" }}
                   boxShadow="0 4px 18px 0 rgba(33, 82, 255, 0.10), 0 1.5px 8px 0 rgba(255, 215, 0, 0.10)"
                   letterSpacing="0.01em"
                   style={{
@@ -148,7 +170,9 @@ export function Hero() {
                   _light={{ borderColor: "gold.400", color: "brand.700" }}
                   _dark={{ borderColor: "gold.300", color: "gold.200" }}
                   textAlign="center"
-                  whiteSpace="pre-line"
+                  whiteSpace="normal"
+                  lineHeight="1.3"
+                  w={{ base: "full", sm: "auto" }}
                 >
                   CUET Preparation – Essential for Today’s Students
                 </Badge>

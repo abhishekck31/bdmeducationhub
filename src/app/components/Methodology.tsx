@@ -4,7 +4,6 @@ import {
   Box,
   Container,
   Heading,
-  HStack,
   Stack,
   Text,
 } from "@chakra-ui/react";
@@ -54,8 +53,12 @@ export function Methodology() {
         <Stack mt={{ base: 10, md: 12 }} gap={{ base: 6, md: 7 }}>
           {steps.map((s, idx) => (
             <ScrollFadeIn key={s.title} delay={idx * 0.05}>
-              <HStack align="flex-start" gap={4}>
-                <Box position="relative" mt={1}>
+              <Stack
+                direction={{ base: "column", md: "row" }}
+                align="flex-start"
+                gap={{ base: 4, md: 5 }}
+              >
+                <Box position="relative" mt={1} flexShrink={0}>
                   <Box
                     w={10}
                     h={10}
@@ -81,12 +84,14 @@ export function Methodology() {
                       h={{ base: 10, md: 12 }}
                       bg="blackAlpha.200"
                       borderRadius="full"
+                      display={{ base: "none", md: "block" }}
                     />
                   ) : null}
                 </Box>
 
                 <Box
                   flex={1}
+                  w="full"
                   borderRadius="2xl"
                   bg="white"
                   borderWidth="1px"
@@ -99,7 +104,7 @@ export function Methodology() {
                   </Heading>
                   <Text color="gray.600">{s.body}</Text>
                 </Box>
-              </HStack>
+              </Stack>
             </ScrollFadeIn>
           ))}
         </Stack>
