@@ -1,7 +1,7 @@
 export const site = {
   name: "Bimla Devi Memorial Education Hub",
   shortName: "BDM Education Hub",
-  slogan: "सफल भविष्य की मजबूत नींव",
+  slogan: "A Strong Foundation for a Successful Future.",
   whatsappNumber: "+918708736484",
   addressLines: [
     "Galli number 2 South City",

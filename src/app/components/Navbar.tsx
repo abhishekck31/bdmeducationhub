@@ -30,10 +30,7 @@ import { site } from "@/lib/site";
 const navLinks = [
   { label: "About", href: "#about" },
   { label: "Courses", href: "#courses" },
-  { label: "Why Us", href: "#why" },
-  { label: "Methodology", href: "#methodology" },
   { label: "Director", href: "#director" },
-  { label: "Gallery", href: "#gallery" },
   { label: "Contact", href: "#contact" },
 ];
 

@@ -82,85 +82,165 @@ export function Hero() {
             <Stack gap={{ base: 7, md: 8 }} maxW={{ lg: "2xl" }}>
               <HStack gap={3} flexWrap="wrap">
                 <Badge
-                  px={3}
-                  py={1}
+                  px={4}
+                  py={1.5}
                   borderRadius="full"
-                  bg="white"
+                  bgGradient="linear(to-r, brand.50, gold.50)"
                   color="brand.800"
-                  borderWidth="1px"
-                  borderColor="brand.100"
+                  borderWidth="2px"
+                  borderColor="brand.200"
+                  fontWeight={800}
+                  fontSize={{ base: "sm", md: "md" }}
+                  boxShadow="0 2px 8px 0 #e3eafc"
+                  letterSpacing="0.01em"
                 >
                   Classes {site.programs.classes}
                 </Badge>
                 <Badge
-                  px={3}
-                  py={1}
+                  px={4}
+                  py={1.5}
                   borderRadius="full"
-                  bg="white"
+                  bgGradient="linear(to-r, brand.50, gold.50)"
                   color="brand.800"
-                  borderWidth="1px"
-                  borderColor="brand.100"
+                  borderWidth="2px"
+                  borderColor="brand.200"
+                  fontWeight={800}
+                  fontSize={{ base: "sm", md: "md" }}
+                  boxShadow="0 2px 8px 0 #e3eafc"
+                  letterSpacing="0.01em"
                 >
-                  Navodaya • Sainik School
+                  Navodaya • Sainik School • Military School • Gurukul
                 </Badge>
                 <Badge
-                  px={3}
-                  py={1}
+                  px={4}
+                  py={1.5}
                   borderRadius="full"
-                  bg="gold.100"
+                  bgGradient="linear(to-r, gold.100, gold.50)"
                   color="gold.800"
-                  borderWidth="1px"
-                  borderColor="gold.200"
+                  borderWidth="2px"
+                  borderColor="gold.300"
+                  fontWeight={800}
+                  fontSize={{ base: "sm", md: "md" }}
+                  boxShadow="0 2px 8px 0 #fffbe6"
+                  letterSpacing="0.01em"
                 >
                   Admissions Open
                 </Badge>
               </HStack>
 
+              {/* CUET Preparation Badge - visually attractive, premium style */}
+              <Box display="flex" mt={2} mb={1}>
+                <Badge
+                  px={6}
+                  py={2.5}
+                  borderRadius="full"
+                  bgGradient="linear(to-r, gold.50, brand.50)"
+                  color="brand.800"
+                  borderWidth="2px"
+                  borderColor="gold.400"
+                  fontWeight={900}
+                  fontSize={{ base: "md", md: "lg" }}
+                  boxShadow="0 4px 18px 0 rgba(33, 82, 255, 0.10), 0 1.5px 8px 0 rgba(255, 215, 0, 0.10)"
+                  letterSpacing="0.01em"
+                  style={{
+                    background: "linear-gradient(90deg, #f7fafc 0%, #fffbe6 100%)",
+                  }}
+                  _light={{ borderColor: "gold.400", color: "brand.700" }}
+                  _dark={{ borderColor: "gold.300", color: "gold.200" }}
+                  textAlign="center"
+                  whiteSpace="pre-line"
+                >
+                  CUET Preparation – Essential for Today’s Students
+                </Badge>
+              </Box>
+
               <Stack gap={2}>
                 <Text
                   color="brand.800"
-                  fontWeight={700}
+                  fontWeight={800}
                   letterSpacing="0.02em"
-                  fontSize={{ base: "sm", md: "md" }}
+                  fontSize={{ base: "md", md: "lg" }}
+                  textAlign="left"
+                  mb={1}
+                  sx={{ textShadow: "0 1px 8px #fffbe6" }}
                 >
-                  {site.slogan}
+                  A Strong Foundation for a Successful Future.
                 </Text>
                 <Box
                   h="3px"
-                  w={{ base: 16, md: 20 }}
-                  bg="gold.400"
+                  w={{ base: 20, md: 28 }}
+                  bgGradient="linear(to-r, gold.400, brand.200)"
                   borderRadius="full"
+                  boxShadow="0 1px 6px 0 #e3eafc"
                 />
               </Stack>
 
-              <Heading
-                as="h1"
-                color="gray.900"
-                fontSize={{ base: "3xl", sm: "4xl", md: "5xl", lg: "5xl" }}
-                lineHeight={{ base: "1.18", md: "1.08" }}
-                letterSpacing="-0.02em"
-              >
-                Strong fundamentals. Clear concepts. Confident results.
-              </Heading>
+              <Box>
+                <Heading
+                  as="h1"
+                  color="brand.900"
+                  fontSize={{ base: "2xl", sm: "3xl", md: "4xl", lg: "5xl" }}
+                  lineHeight={1.1}
+                  letterSpacing="-0.02em"
+                  fontWeight={900}
+                  mb={1}
+                  sx={{ textShadow: "0 2px 12px #e3eafc" }}
+                >
+                  Strong fundamentals.
+                </Heading>
+                <Heading
+                  as="h1"
+                  color="brand.700"
+                  fontSize={{ base: "2xl", sm: "3xl", md: "4xl", lg: "5xl" }}
+                  lineHeight={1.1}
+                  letterSpacing="-0.02em"
+                  fontWeight={900}
+                  mb={1}
+                  sx={{ textShadow: "0 2px 12px #fffbe6" }}
+                >
+                  Clear concepts.
+                </Heading>
+                <Heading
+                  as="h1"
+                  color="gold.700"
+                  fontSize={{ base: "2xl", sm: "3xl", md: "4xl", lg: "5xl" }}
+                  lineHeight={1.1}
+                  letterSpacing="-0.02em"
+                  fontWeight={900}
+                  sx={{ textShadow: "0 2px 12px #e3eafc" }}
+                >
+                  Confident results.
+                </Heading>
+              </Box>
+
 
               <Text
                 color="gray.700"
-                fontSize={{ base: "lg", md: "xl" }}
-                maxW={{ lg: "xl" }}
+                fontSize={{ base: "md", md: "xl" }}
+                maxW={{ base: "100%", md: "90%", lg: "xl" }}
+                fontWeight={500}
+                mt={2}
+                mb={2}
+                sx={{ textShadow: "0 1px 8px #f7fafc" }}
               >
-                {site.name} helps students build disciplined study habits with
-                focused teaching, regular tests, and personal attention — from
-                school tuition to competitive exam batches.
+                {site.name} helps students build disciplined study habits with focused teaching, regular tests, and personal attention — from school tuition to competitive exam batches.
               </Text>
 
-              <Link href="#contact" _hover={{ textDecoration: "none" }}>
+
+              <Link href="#contact" _hover={{ textDecoration: "none" }} width={{ base: "100%", sm: "auto" }}>
                 <Button
                   size="lg"
-                  bgGradient="linear(to-r, brand.700, brand.600)"
+                  px={8}
+                  py={6}
+                  borderRadius="full"
+                  bgGradient="linear(to-r, brand.700, gold.400)"
                   color="white"
-                  boxShadow="soft"
-                  _hover={{ bgGradient: "linear(to-r, brand.800, brand.700)" }}
+                  fontWeight={800}
+                  fontSize={{ base: "md", md: "lg" }}
+                  boxShadow="0 4px 18px 0 rgba(33, 82, 255, 0.10), 0 1.5px 8px 0 rgba(255, 215, 0, 0.10)"
+                  _hover={{ bgGradient: "linear(to-r, brand.800, gold.500)", transform: "scale(1.04)" }}
                   w={{ base: "full", sm: "auto" }}
+                  transition="all 0.2s cubic-bezier(.4,1,.7,1)"
                 >
                   <Box as="span">Enquire Now</Box>
                   <Icon as={FiArrowUpRight} ms={2} />
