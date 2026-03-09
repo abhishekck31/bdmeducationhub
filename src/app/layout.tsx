@@ -16,11 +16,11 @@ export const metadata: Metadata = {
     template: "%s | BDM Education Hub",
   },
   description:
-    "Bimla Devi Memorial Education Hub (BDM Education Hub) — premium academic mentorship and concept clarity for classes 5th to 12th, including Navodaya and Sainik School exam batches.",
+    "Bimla Devi Memorial Education Hub (BDM Education Hub) — premium academic mentorship and concept clarity for classes 1st to 12th, including Navodaya and Sainik School exam batches.",
   openGraph: {
     title: "Bimla Devi Memorial Education Hub",
     description:
-      "Premium academic mentorship and concept clarity for classes 5th to 12th. Special batches for Navodaya and Sainik School exams.",
+      "Premium academic mentorship and concept clarity for classes 1st to 12th. Special batches for Navodaya and Sainik School exams.",
     type: "website",
   },
   robots: {

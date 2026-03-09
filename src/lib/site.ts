@@ -14,7 +14,7 @@ export const site = {
     youtube: "https://youtube.com/@bdmeducationhub",
   },
   programs: {
-    classes: "5th to 12th",
+    classes: "1st to 12th",
     specialBatches: ["Navodaya Exam", "Sainik School Exam"],
   },
 } as const;

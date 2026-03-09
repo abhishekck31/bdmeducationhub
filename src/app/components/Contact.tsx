@@ -25,18 +25,24 @@ import { toaster } from "@/lib/toaster";
 export function Contact() {
   const [name, setName] = React.useState("");
   const [phone, setPhone] = React.useState("");
+  const [course, setCourse] = React.useState("");
   const [message, setMessage] = React.useState("");
+  const [source, setSource] = React.useState("");
 
   const buildWhatsAppMessage = () => {
     const cleanName = name.trim();
     const cleanPhone = phone.trim();
+    const cleanCourse = course.trim();
     const cleanMessage = message.trim();
+    const cleanSource = source.trim();
 
     return [
       `Hello ${site.shortName}! I want to enquire about admissions.`,
       "",
       `Name: ${cleanName || "-"}`,
       `Phone: ${cleanPhone || "-"}`,
+      `Course: ${cleanCourse || "-"}`,
+      `Source: ${cleanSource || "-"}`,
       `Message: ${cleanMessage || "-"}`,
     ].join("\n");
   };
@@ -63,7 +69,9 @@ export function Contact() {
 
     setName("");
     setPhone("");
+    setCourse("");
     setMessage("");
+    setSource("");
   };
 
   return (
@@ -163,34 +171,95 @@ export function Contact() {
                 <Stack gap={4}>
                   <Heading size="md">Enquiry Form</Heading>
 
+                  <Stack direction={{ base: "column", sm: "row" }} gap={4} w="full">
+                    <Field.Root>
+                      <Field.Label>Your Name</Field.Label>
+                      <Input
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        placeholder="Enter your name"
+                        required
+                        bg="transparent"
+                      />
+                    </Field.Root>
+
+                    <Field.Root>
+                      <Field.Label>Phone Number</Field.Label>
+                      <Input
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        placeholder=""
+                        required
+                        bg="transparent"
+                      />
+                    </Field.Root>
+                  </Stack>
+
                   <Field.Root>
-                    <Field.Label>Your Name</Field.Label>
-                    <Input
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      placeholder="Enter your name"
-                      required
-                    />
+                    <Field.Label>Course Interested In (Dropdown)</Field.Label>
+                    <Box
+                      asChild
+                      w="full"
+                      h="10"
+                      px={3}
+                      borderRadius="md"
+                      borderWidth="1px"
+                      borderColor="blackAlpha.200"
+                      bg="transparent"
+                      _focus={{ outline: "2px solid", outlineColor: "brand.500", outlineOffset: "-1px" }}
+                    >
+                      <select
+                        value={course}
+                        onChange={(e: any) => setCourse(e.target.value)}
+                      >
+                        <option value="" disabled hidden>Select a Course</option>
+                        <option value="Classes 1st to 12th">Classes 1st to 12th</option>
+                        <option value="Navodaya Exam">Navodaya Exam</option>
+                        <option value="Sainik School Exam">Sainik School Exam</option>
+                        <option value="Military School Exam">Military School Exam</option>
+                        <option value="Gurukul">Gurukul</option>
+                        <option value="CUET Preparation">CUET Preparation</option>
+                      </select>
+                    </Box>
                   </Field.Root>
 
                   <Field.Root>
-                    <Field.Label>Phone Number</Field.Label>
+                    <Field.Label>Specific Query (Optional)</Field.Label>
                     <Input
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                      placeholder="Enter phone / WhatsApp number"
-                      required
-                    />
-                  </Field.Root>
-
-                  <Field.Root>
-                    <Field.Label>Message</Field.Label>
-                    <Textarea
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                       placeholder="What do you want to ask?"
-                      rows={5}
+                      bg="transparent"
                     />
+                  </Field.Root>
+
+                  <Field.Root>
+                    <Field.Label>How did you hear about us? (Optional)</Field.Label>
+                    <Box
+                      asChild
+                      w="full"
+                      h="10"
+                      px={3}
+                      borderRadius="md"
+                      borderWidth="1px"
+                      borderColor="blackAlpha.200"
+                      bg="transparent"
+                      _focus={{ outline: "2px solid", outlineColor: "brand.500", outlineOffset: "-1px" }}
+                    >
+                      <select
+                        value={source}
+                        onChange={(e: any) => setSource(e.target.value)}
+                      >
+                        <option value="" disabled hidden>Select Source</option>
+                        <option value="Instagram">Instagram</option>
+                        <option value="Facebook">Facebook</option>
+                        <option value="Google Search">Google Search</option>
+                        <option value="Friend/Relative">Friend / Relative</option>
+                        <option value="Banner/Hoarding">Banner / Hoarding / Pamphlet</option>
+                        <option value="Newspaper">Newspaper</option>
+                        <option value="Former Student">Former Student</option>
+                      </select>
+                    </Box>
                   </Field.Root>
 
                   <Button type="submit" bg="brand.700" color="white" _hover={{ bg: "brand.800" }}>
